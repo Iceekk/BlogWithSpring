@@ -1,5 +1,7 @@
 package com.example.demo.bindingModel;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.NotNull;
 
 
@@ -16,6 +18,10 @@ public class UserBindingModel {
 
     @NotNull
     private String confirmPassword;
+
+    //added
+    @NotNull
+    private MultipartFile image;
 
     public String getEmail() {
         return email;
@@ -47,5 +53,15 @@ public class UserBindingModel {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    // added
+
+    public MultipartFile getImage() {
+        return image;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
 }

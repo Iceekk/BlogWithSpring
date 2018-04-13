@@ -12,16 +12,21 @@ public class User {
     private String email;
     private String fullName;
     private String password;
+    /////
+    private byte[] image;
+    /////
     private Set<Role> roles;
     private Set<Article> articles;
 
-    public User(String email, String fullName, String password) {
+    public User(String email, String fullName, String password, byte[] image) {
         this.email = email;
         this.fullName = fullName;
         this.password = password;
 
         this.roles = new HashSet<>();
         this.articles = new HashSet<>();
+
+        this.image = image; // filed + getter/setter + contructor
     }
 
     public User(){  }
@@ -97,4 +102,14 @@ public class User {
     }
 
 
+    /////  new field
+
+    @Column(name = "image")
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 }

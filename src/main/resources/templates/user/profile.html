@@ -1,11 +1,47 @@
 <main>
-    <div class="container body-container">
+    <div class="container">
         <div class="row">
-            <div id="main" class="col-sm-9">
-                <div>
-                    <span th:text="${user.email}"></span>
-                    <br/>
-                    <span th:text="${user.fullName}"></span>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <img style="height: 160px; width: auto;" th:src="@{'data:image/jpeg;base64,'+${user.image}}" class="img-rounded img-responsive"/>
+                        </div>
+                        <div class="col-sm-6 col-md-8">
+                            <label class="col-lg-4" style="bord;"><h4>My Profile</h4></label>
+                            <div><br/></div>
+                            <div><br/></div>
+                            <p>
+                                <br/>
+                                <i class="glyphicon glyphicon-king col-lg-1"></i>
+                                <label class="col-lg-4" >User name:</label>
+                                <span th:text="${user.name}" class="col-lg-3"></span>
+                                <br/>
+
+                            <div></div>
+
+                                <i class="glyphicon glyphicon-envelope col-lg-1"></i>
+                                <label class="col-lg-4" >Email:</label>
+                                <span th:text="${user.email}" class="col-lg-3"></span>
+                                <br/>
+                            </p>
+                            <!-- Split button -->
+                            <div class="btn-group col-lg-5" >
+                                <button type="button" class="btn btn-primary">Social</button>
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Social</span>
+                                </button>
+                                <ul class="dropdown-menu " role="menu">
+                                    <li><a href="https://twitter.com/twitter">Twitter</a></li>
+                                    <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
+                                    <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="https://github.com/">Github</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
