@@ -1,15 +1,14 @@
 <main>
     <div class="container body-content span=8 offset=2">
         <div class="well">
-            <form class="form-horizontal" th:action="@{/article/create}" method="POST">
+            <form class="form-horizontal" th:action="@{/article/create}" method="POST" enctype="multipart/form-data">
                 <fieldset>
                     <legend>New Post</legend>
 
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="article_title">Article Title</label>
-                        <div class="col-sm-4 ">
-                            <input type="text" class="form-control" id="article_title" placeholder="Article Title"
-                                   name="title"/>
+                        <div class="col-sm-6 ">
+                            <input type="text" class="form-control" id="article_title" placeholder="Article Title" name="title"/>
                         </div>
                     </div>
 
@@ -35,6 +34,17 @@
                             <input type="text" class="form-control" id="article_tags" placeholder="Tags" name="tagString"/>
                         </div>
                     </div>
+
+
+                    <!-- test // -->
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="user_image">Photo</label>
+                        <div class="col-sm-4 ">
+                            <input class="form-group-sm" type="file" id="user_image" placeholder="Image" name="image" required="required"/>
+                        </div>
+                    </div>
+                    <!-- test // -->
+
 
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-4">

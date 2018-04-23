@@ -4,6 +4,7 @@ package com.example.demo.controller.admin;
 import com.example.demo.bindingModel.CategoryBindingModel;
 import com.example.demo.entity.Article;
 import com.example.demo.entity.Category;
+import com.example.demo.entity.Tag;
 import com.example.demo.repository.ArticleRepository;
 import com.example.demo.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class CategoryController {
         categories = categories.stream()
                 .sorted(Comparator.comparingInt(Category::getId))
                 .collect(Collectors.toList());
+
 
         model.addAttribute("categories", categories);
         model.addAttribute("view", "admin/category/list");

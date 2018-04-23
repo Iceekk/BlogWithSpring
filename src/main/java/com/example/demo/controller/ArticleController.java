@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,15 +51,15 @@ public class ArticleController {
 
     @PostMapping("article/create")
     @PreAuthorize("isAuthenticated()")
-    public String createProcess(ArticleBindingModel articleBindingModel){
+    public String createProcess(ArticleBindingModel articleBindingModel) throws IOException {
         UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         User userEntity = this.userRepository.findByEmail(user.getUsername());
         Category category = this.categoryRepository.findOne(articleBindingModel.getCategoryId());
         HashSet<Tag> tags = this.findTagsFromString(articleBindingModel.getTagString());
 
-        Article articleEntity = new Article(articleBindingModel.getTitle(), articleBindingModel.getContent(), userEntity, category, tags);
-
+        Article articleEntity = new Article(articleBindingModel.getTitle(), articleBindingModel.getContent(), userEntity, category, tags, articleBindingModel.getImage().getBytes());
+       ///////////////////////////////////--------------------------
         this.articleRepository.saveAndFlush(articleEntity);
 
         return "redirect:/";
@@ -79,6 +81,7 @@ public class ArticleController {
 
         Article article = this.articleRepository.findOne(id);
 
+        model.addAttribute("image", Base64.getEncoder().encodeToString(article.getImage()));
         model.addAttribute("article", article);
         model.addAttribute("view", "article/details");
 

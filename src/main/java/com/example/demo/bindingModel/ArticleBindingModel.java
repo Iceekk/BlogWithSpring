@@ -1,6 +1,8 @@
 package com.example.demo.bindingModel;
 
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.NotNull;
 
 public class ArticleBindingModel {
@@ -14,6 +16,13 @@ public class ArticleBindingModel {
     private Integer categoryId;
 
     private String tagString;
+
+
+    //added
+    @NotNull
+    private MultipartFile image;
+
+
 
     public String getTagString() {
         return tagString;
@@ -43,5 +52,16 @@ public class ArticleBindingModel {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+
+    //added
+
+    public MultipartFile getImage() {
+        return image;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
     }
 }

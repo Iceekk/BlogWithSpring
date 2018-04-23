@@ -104,7 +104,7 @@ public class User {
 
     /////  new field
 
-    @Column(name = "image")
+    @Column(name = "image",nullable = false)
     public byte[] getImage() {
         return image;
     }
