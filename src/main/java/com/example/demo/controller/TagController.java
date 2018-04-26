@@ -22,6 +22,7 @@ public class TagController {
     @Autowired
     private TagRepository tagRepository;
 
+
     @GetMapping("/tag/{name}")
     public String articleWithTag(Model model, @PathVariable String name){
         Tag tag = this. tagRepository.findByName(name);
@@ -33,7 +34,8 @@ public class TagController {
         List<ArticleViewModel> output = new ArrayList<>();
 
         for(Article article : articles){
-            ArticleViewModel articleViewModel = new ArticleViewModel(article.getId(), article.getTitle(), Base64.getEncoder().encodeToString(article.getImage()),
+            ArticleViewModel articleViewModel = new ArticleViewModel(article.getId(),
+                    article.getTitle(), Base64.getEncoder().encodeToString(article.getImage()),
                     article.getAuthor().getFullName(),
                     article.getTags(),
                     article.getSummary());
@@ -47,4 +49,5 @@ public class TagController {
 
         return "base-layout";
     }
+
 }

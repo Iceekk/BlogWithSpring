@@ -38,6 +38,7 @@ public class ArticleController {
     @Autowired
     private TagRepository tagRepository;
 
+
     @GetMapping("/article/create")
     @PreAuthorize("isAuthenticated()")
     public String create(Model model){
@@ -58,8 +59,13 @@ public class ArticleController {
         Category category = this.categoryRepository.findOne(articleBindingModel.getCategoryId());
         HashSet<Tag> tags = this.findTagsFromString(articleBindingModel.getTagString());
 
-        Article articleEntity = new Article(articleBindingModel.getTitle(), articleBindingModel.getContent(), userEntity, category, tags, articleBindingModel.getImage().getBytes());
-       ///////////////////////////////////--------------------------
+        Article articleEntity = new Article(articleBindingModel.getTitle(),
+                articleBindingModel.getContent(),
+                userEntity,
+                category,
+                tags,
+                articleBindingModel.getImage().getBytes());
+
         this.articleRepository.saveAndFlush(articleEntity);
 
         return "redirect:/";

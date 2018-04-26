@@ -1,7 +1,6 @@
 package com.example.demo.controller.admin;
 
 
-import com.example.demo.bindingModel.UserBindingModel;
 import com.example.demo.bindingModel.UserEditBindingModel;
 import com.example.demo.entity.Article;
 import com.example.demo.entity.Role;
@@ -29,12 +28,11 @@ public class AdminUserController {
 
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private ArticleRepository articleRepository;
-
     @Autowired
     private RoleRepository roleRepository;
+
 
     @GetMapping("/")
     public String listUsers(Model model){
@@ -125,6 +123,5 @@ public class AdminUserController {
 
         return "redirect:/admin/users/";
     }
-
 
 }

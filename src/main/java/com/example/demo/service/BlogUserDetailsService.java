@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class BlogUserDetailsService implements UserDetailsService {
     private final UserRepository userRepository;
 
+
     public BlogUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -39,4 +40,5 @@ public class BlogUserDetailsService implements UserDetailsService {
                     .User(user.getEmail(), user.getPassword(), grantedAuthorities);
         }
     }
+
 }

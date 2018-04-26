@@ -5,6 +5,7 @@ public class UserViewModel {
     private String email;
     private String image;
 
+
     public UserViewModel() {
     }
 

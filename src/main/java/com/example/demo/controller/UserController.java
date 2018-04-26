@@ -28,7 +28,6 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
-
     private final UserService userService;
 
     @Autowired
@@ -77,7 +76,6 @@ public class UserController {
 
         User user = this.userRepository.findByEmail(principal.getUsername());
         UserViewModel userViewModel = new UserViewModel(user.getFullName(), user.getEmail(), Base64.getEncoder().encodeToString(user.getImage()));
-
 
         model.addAttribute("user", userViewModel);
         model.addAttribute("view", "user/profile");

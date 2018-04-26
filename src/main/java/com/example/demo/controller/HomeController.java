@@ -3,9 +3,9 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Article;
 import com.example.demo.entity.Category;
-import com.example.demo.repository.ArticleRepository;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.viewModel.ArticleViewModel;
+import com.example.demo.viewModel.CategoryViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -25,13 +24,27 @@ public class HomeController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+
     @GetMapping("/")
     public String index(Model model){
 
         List<Category> categories = this.categoryRepository.findAll();
 
+        List<CategoryViewModel> output = new ArrayList<>();
+
+        for (Category category : categories) {
+            CategoryViewModel categoryViewModel = new CategoryViewModel(
+                    category.getId(),
+                    category.getName(),
+                    Base64.getEncoder().encodeToString(category.getImage()),
+                    category.getArticles());
+
+            output.add(categoryViewModel);
+        }
+
+        model.addAttribute("categories", output);
         model.addAttribute("view", "home/index");
-        model.addAttribute("categories", categories);
+
 
         return "base-layout";
     }

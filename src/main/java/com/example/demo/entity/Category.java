@@ -9,13 +9,21 @@ import java.util.Set;
 public class Category {
     private Integer id;
     private String name;
+    private byte[] image;
     private Set<Article> articles;
+
 
     public Category(){  }
 
-    public Category(String name) {
+    public Category(String name){
         this.name = name;
         this.articles = new HashSet<>();
+    }
+
+    public Category(String name, byte[] image) {
+        this.name = name;
+        this.articles = new HashSet<>();
+        this.image = image;
     }
 
     @Id
@@ -44,5 +52,14 @@ public class Category {
 
     public void setArticles(Set<Article> articles) {
         this.articles = articles;
+    }
+
+    @Column(nullable = false, unique = true)
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

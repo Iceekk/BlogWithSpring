@@ -12,11 +12,10 @@ public class User {
     private String email;
     private String fullName;
     private String password;
-    /////
     private byte[] image;
-    /////
     private Set<Role> roles;
     private Set<Article> articles;
+
 
     public User(String email, String fullName, String password, byte[] image) {
         this.email = email;
@@ -100,9 +99,6 @@ public class User {
     public boolean isAuthor(Article article) {
         return Objects.equals(this.getId(), article.getAuthor().getId());
     }
-
-
-    /////  new field
 
     @Column(name = "image",nullable = false)
     public byte[] getImage() {

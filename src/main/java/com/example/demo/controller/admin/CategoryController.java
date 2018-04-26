@@ -4,7 +4,6 @@ package com.example.demo.controller.admin;
 import com.example.demo.bindingModel.CategoryBindingModel;
 import com.example.demo.entity.Article;
 import com.example.demo.entity.Category;
-import com.example.demo.entity.Tag;
 import com.example.demo.repository.ArticleRepository;
 import com.example.demo.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.thymeleaf.util.StringUtils;
 
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,9 +26,9 @@ public class CategoryController {
 
     @Autowired
     private CategoryRepository categoryRepository;
-
     @Autowired
     private ArticleRepository articleRepository;
+
 
     @GetMapping("/")
     public String list(Model model){
@@ -38,7 +38,6 @@ public class CategoryController {
         categories = categories.stream()
                 .sorted(Comparator.comparingInt(Category::getId))
                 .collect(Collectors.toList());
-
 
         model.addAttribute("categories", categories);
         model.addAttribute("view", "admin/category/list");
@@ -54,12 +53,15 @@ public class CategoryController {
     }
 
     @PostMapping("/create")
-    public String createProcess(CategoryBindingModel categoryBindingModel){
+    public String createProcess(CategoryBindingModel categoryBindingModel) throws IOException {
         if (StringUtils.isEmpty(categoryBindingModel.getName())){
             return "redirect:/admin/categories/create";
         }
 
-        Category category = new Category(categoryBindingModel.getName());
+        Category category = new Category(
+                categoryBindingModel.getName(),
+                categoryBindingModel.getMultipartFile().getBytes()
+        );
 
         this.categoryRepository.saveAndFlush(category);
 

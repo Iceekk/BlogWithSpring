@@ -9,19 +9,12 @@ public class ArticleBindingModel {
 
     @NotNull
     private String title;
-
     @NotNull
     private String content;
-
     private Integer categoryId;
-
     private String tagString;
-
-
-    //added
     @NotNull
     private MultipartFile image;
-
 
 
     public String getTagString() {
@@ -54,9 +47,6 @@ public class ArticleBindingModel {
         this.content = content;
     }
 
-
-    //added
-
     public MultipartFile getImage() {
         return image;
     }
@@ -64,4 +54,5 @@ public class ArticleBindingModel {
     public void setImage(MultipartFile image) {
         this.image = image;
     }
+
 }

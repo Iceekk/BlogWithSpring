@@ -41,10 +41,10 @@ public class BlogUserDetails extends User implements UserDetails{
     @Override
     public String getUsername() {
         return user.getFullName();
-        // can be changed.. not sure ...
     }
 
     public User getUser(){
         return this.user;
     }
+
 }

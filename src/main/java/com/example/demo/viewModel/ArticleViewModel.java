@@ -10,8 +10,8 @@ public class ArticleViewModel {
     private String image;
     private String authorName;
     private Set<Tag> tags;
-
     private String articleSummary;
+
 
     public ArticleViewModel(Integer articleId, String title, String image, String authorName, Set<Tag> tags,String articleSummary) {
         this.articleId = articleId;
@@ -19,8 +19,6 @@ public class ArticleViewModel {
         this.image = image;
         this.authorName = authorName;
         this.tags = tags;
-
-
         this.articleSummary = articleSummary;
     }
 
@@ -63,8 +61,6 @@ public class ArticleViewModel {
     public void setTags(Set<Tag> tags) {
         this.tags = tags;
     }
-
-    //
 
     public String getArticleSummary() {
         return articleSummary;

@@ -12,11 +12,10 @@ public class Article {
     private String title;
     private String content;
     private User author;
-    //
     private byte[] image;
-    //
     private Category category;
     private Set<Tag> tags;
+
 
     public Article(String title, String content, User author, Category category, HashSet<Tag> tags, byte[] image) {
         this.title = title;
@@ -24,7 +23,6 @@ public class Article {
         this.author = author;
         this.category = category;
         this.tags = tags;
-
         this.image = image;
     }
 
@@ -92,8 +90,6 @@ public class Article {
     public String getSummary(){
         return this.getContent().substring(0, this.getContent().length() / 2) + "...";
     }
-
-    ///////////
 
     @Column(name = "image")
     public byte[] getImage() {

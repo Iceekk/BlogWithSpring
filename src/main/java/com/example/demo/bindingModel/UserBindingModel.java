@@ -9,19 +9,15 @@ public class UserBindingModel {
 
     @NotNull
     private String email;
-
     @NotNull
     private String fullName;
-
     @NotNull
     private String password;
-
     @NotNull
     private String confirmPassword;
-
-    //added
     @NotNull
     private MultipartFile image;
+
 
     public String getEmail() {
         return email;
@@ -55,8 +51,6 @@ public class UserBindingModel {
         this.confirmPassword = confirmPassword;
     }
 
-    // added
-
     public MultipartFile getImage() {
         return image;
     }
@@ -64,4 +58,5 @@ public class UserBindingModel {
     public void setImage(MultipartFile image) {
         this.image = image;
     }
+
 }

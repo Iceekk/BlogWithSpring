@@ -8,6 +8,7 @@ public class UserEditBindingModel extends UserBindingModel{
 
     private List<Integer> roles;
 
+
     public UserEditBindingModel(){
         this.roles = new ArrayList<>();
     }
@@ -19,4 +20,5 @@ public class UserEditBindingModel extends UserBindingModel{
     public void setRoles(List<Integer> roles) {
         this.roles = roles;
     }
+
 }

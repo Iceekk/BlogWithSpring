@@ -13,7 +13,6 @@
                             <img style="height: 160px; width: auto;" th:src="@{'data:image/jpeg;base64,'+${article.image}}" class="img-rounded img-responsive"/>
                         </div>
 
-
                         <p th:text="${article.articleSummary}"></p>
 
                         <small class="author" th:text="${authorName}"></small>
@@ -21,7 +20,6 @@
                         <p>
                             <a class="btn btn-default btn-xs" th:each="tag:${article.tags}" th:href="@{/tag/{name}(name=${tag.name})}" th:text="${tag.name}"></a>
                         </p>
-
 
                         <div>
                             <div class="pull-right">

@@ -1,17 +1,21 @@
 <main>
     <div class="container body-content span=8 offset=2">
         <div class="well">
-            <form class="form-horizontal" th:action="@{/admin/categories/create}" method="POST">
+            <form class="form-horizontal" th:action="@{/admin/categories/create}" method="POST" enctype="multipart/form-data" >
                 <fieldset>
                     <legend>New Category</legend>
-
                     <div class="form-group">
-                        <label class="col-sm-4 control-label" for="category_name">Category Name</label>
+                        <label class="col-sm-4 control-label" for="category_name">Category name</label>
                         <div class="col-sm-4 ">
                             <input type="text" class="form-control" id="category_name" placeholder="Category Name" name="name"/>
                         </div>
                     </div>
-
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="user_image">Category photo</label>
+                        <div class="col-sm-4 ">
+                            <input class="form-group-sm" type="file" id="user_image" placeholder="Image" name="multipartFile" required="required"/>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-4">
                             <a class="btn btn-default" th:href="@{/admin/categories/}">Cancel</a>

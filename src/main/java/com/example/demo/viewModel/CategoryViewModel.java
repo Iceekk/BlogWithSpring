@@ -1,27 +1,24 @@
-package com.example.demo.entity;
+package com.example.demo.viewModel;
 
+import com.example.demo.entity.Article;
 
-import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "tags")
-public class Tag {
+public class CategoryViewModel {
+
     private Integer id;
     private String name;
+    private String image;
     private Set<Article> articles;
 
 
-    public Tag() {}
-
-    public Tag(String name) {
+    public CategoryViewModel(Integer id, String name, String image, Set<Article> articles) {
+        this.id = id;
         this.name = name;
-        this.articles = new HashSet<>();
+        this.image = image;
+        this.articles = articles;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -30,7 +27,6 @@ public class Tag {
         this.id = id;
     }
 
-    @Column(unique = true, nullable = false)
     public String getName() {
         return name;
     }
@@ -39,7 +35,14 @@ public class Tag {
         this.name = name;
     }
 
-    @ManyToMany(mappedBy = "tags")
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Set<Article> getArticles() {
         return articles;
     }
