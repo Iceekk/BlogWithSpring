@@ -45,7 +45,6 @@ public class HomeController {
         model.addAttribute("categories", output);
         model.addAttribute("view", "home/index");
 
-
         return "base-layout";
     }
 

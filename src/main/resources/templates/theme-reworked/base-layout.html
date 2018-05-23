@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+    <head th:include="theme-reworked/fragments/head" th:with="pageTitle='Blog'"></head>
+
+    <body>
+
+        <header th:include="theme-reworked/fragments/header"></header>
+
+        <aside th:include="theme-reworked/fragments/side-bar"></aside>
+
+        <aside th:include="theme-reworked/fragments/admin-side-bar"></aside>
+
+        <div th:include="theme-reworked/fragments/page-title"></div>
+
+<!--
+        <div th:include="theme-reworked/fragments/contact-form"></div>
+-->
+
+        <!--<main th:include="${view}"></main>-->
+
+        <footer th:include="theme-reworked/fragments/footer"></footer>
+
+        <div th:include="theme-reworked/fragments/back-to-top"></div>
+
+        <!-- Container Selection1
+        <div id="dropDownSelect1"></div>-->
+
+        <span th:include="theme-reworked/fragments/scripts_bundle"></span>
+
+    </body>
+
+</html>
